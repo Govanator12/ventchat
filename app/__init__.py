@@ -14,7 +14,6 @@ pusher_client = pusher.Pusher(
   ssl=True
 )
 
-
 bootstrap = Bootstrap(app)
 app.config.from_object(Config)
 

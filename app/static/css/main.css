@@ -1,0 +1,21 @@
+.jumbotron {
+  text-align: center;
+}
+
+
+.display-4 {
+  margin-top: 250px;
+  margin-bottom: 30px;
+}
+
+.subtitle {
+  margin-bottom: 250px;
+}
+
+.btn {
+  margin: 25px;
+}
+
+#rooms-table {
+  margin-top: 100px;
+}

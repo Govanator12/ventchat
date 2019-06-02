@@ -1,7 +1,20 @@
 {% extends 'base.html' %}
 
 {% block app_content %}
-
-  <h1>test</h1>
-
+  <div class="row">
+    <div class="col-md-12">
+      <div class="jumbotron">
+        <div id="jumbotron-background-img">
+          <h1 class="display-4">Having trouble? Need to talk?</h1>
+          <p class="lead subtitle">VentChat is an inclusive forum for those who just need someone to listen, and for the people that are willing to lend an ear.</p>
+        <hr class="my-4">
+        </div>
+        <p>Support Chat offers various support rooms, with discussion topics chosen by the chat creator. You can either start your own room or browse open rooms now.</p>
+        <p class="lead">
+          <a class="btn btn-primary btn-lg" href="{{ url_for('rooms') }}" role="button">Browse Open Rooms (Recommmended)</a>
+          <a class="btn btn-success btn-lg" href="#" role="button">Start a New Room</a>
+        </p>
+      </div> <!-- ends jumbotron -->
+    </div> <!-- ends col 12 -->
+  </div> <!-- ends row -->
 {% endblock %}

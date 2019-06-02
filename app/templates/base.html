@@ -1,7 +1,7 @@
 {% extends 'bootstrap/base.html' %}
 
 {% block title %}
-  SoberChat
+  {{ title }} - VentChat
 {% endblock %}
 
 {% block styles %}
@@ -13,24 +13,22 @@
 
 {% block scripts %}
   {{ super() }}
-
-  <!-- add pusher scripts -->
-  <script src="https://js.pusher.com/4.4/pusher.min.js"></script>
-
   <!-- jquery cdn -->
   <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
+  <!-- add pusher scripts -->
+  <script src="https://js.pusher.com/4.4/pusher.min.js"></script>
   <script>
 
     // Enable pusher logging - don't include this in production
     Pusher.logToConsole = true;
 
-    var pusher = new Pusher('4f77cd0c59b6dd888f56', {
+    let pusher = new Pusher('4f77cd0c59b6dd888f56', {
       cluster: 'us2',
       forceTLS: true
     });
 
-    var channel = pusher.subscribe('my-channel');
+    let channel = pusher.subscribe('my-channel');
     channel.bind('my-event', function(data) {
       // alert(JSON.stringify(data));
     });
@@ -42,7 +40,7 @@
 
 {% block navbar %}
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="{{ url_for('index') }}">SoberChat</a>
+  <a class="navbar-brand" href="{{ url_for('index') }}">VentChat</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -61,8 +59,17 @@
         {% else %}
           <li class="nav-item">
         {% endif %}
+            <a class="nav-link" href="{{ url_for('rooms') }}">Rooms</a>
+          </li>
+
+      {% if title == 'Contact Us' %}
+          <li class="nav-item active">
+        {% else %}
+          <li class="nav-item">
+        {% endif %}
             <a class="nav-link" href="{{ url_for('contact') }}">Contact</a>
           </li>
+
     </ul>
   </div>
 </nav>
@@ -74,7 +81,8 @@
 
 <footer class="py-3 bg-light">
    <div class="container">
-      <p class="text-center">Copyright &copy; A Friend of Bill 2019</p>
+      <p class="text-center">Copyright &copy; Steven Hardy 2019</p>
+      <p class="text-center">All rights reserved</p>
     </div>
 </footer>
 
